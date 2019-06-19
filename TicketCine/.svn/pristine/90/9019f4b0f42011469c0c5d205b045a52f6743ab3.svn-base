@@ -1,0 +1,93 @@
+package ticketcine.Modelo;
+
+import ticketcine.Controlador.Gerente;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Cine {
+    private String direccion;
+    private String tlf;
+    private int sala;
+    private Provincia provincia;
+    private ArrayList<Gerente> gerentes = new ArrayList<Gerente>();
+    private ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+    protected Pelicula pelicula;
+    private ArrayList<Pase> pases = new ArrayList<Pase>();
+    private ArrayList<Sala> salas = new ArrayList<Sala>();
+    
+    
+    
+    public Cine(String _direccion) {
+        direccion = _direccion;
+    }
+
+    public ArrayList consultarPases(Pelicula _pelicula) {
+
+        ArrayList<Pase> paseDisponibles = new ArrayList<Pase>();
+
+        for(Pase pase : pases) 
+        { 
+            if(pase.comprobarDisponibilidad(_pelicula))
+            {
+                paseDisponibles.add(pase);
+            }
+        }
+
+        return paseDisponibles;
+    }
+        
+    public String toString()
+    {
+        return direccion;
+    }
+
+    public ArrayList consultarPeliculas() {
+        return peliculas;
+    }
+
+    public void registrarPelicula(Pelicula _pelicula) {
+        peliculas.add(_pelicula);
+    }
+        
+    public void registrarPase(Date _fecha, Object _hora, Sala _sala) {
+        Pase paseCine = new Pase();
+        paseCine.setFecha(_fecha);
+        paseCine.setHora(_hora);
+        for(Sala sala : salas){
+            if (sala == _sala)
+                sala.registrarPase(_fecha,_hora);
+        }
+        pases.add(paseCine);
+    }
+   /*     
+    public boolean comprobarCineProv(Provincia _provincia) {
+        boolean pertenece = this.comprobarProvincia(_provincia);
+
+        return pertenece;
+    }
+*/
+    public boolean comprobarCineProv(Provincia _provincia) {
+        boolean pertenece = false;
+
+        if (this.provincia.equals(_provincia)) {
+            pertenece = true;
+        }
+
+        return pertenece;
+    }
+
+    public ArrayList obtenerPeliculas(Cine _cine) {
+        ArrayList<Pelicula> peliculasCine = new ArrayList<Pelicula>();
+        boolean pertenece;
+
+        for (Pelicula p : peliculas) {
+            pertenece = p.comprobarPeliculaCine(_cine);
+
+            if (pertenece) {
+                peliculasCine.add(p);
+            }
+        }
+
+        return peliculasCine;
+    }
+}

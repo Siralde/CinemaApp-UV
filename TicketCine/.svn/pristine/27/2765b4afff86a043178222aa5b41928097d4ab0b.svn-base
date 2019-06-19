@@ -1,0 +1,140 @@
+package ticketcine.Controlador;
+
+import ticketcine.Modelo.TicketCine;
+import java.util.ArrayList;
+import java.util.Date;
+import ticketcine.Modelo.*;
+
+
+public class Cliente extends UsuarioRegistrado {
+    //public Critica critica;
+    protected ArrayList<Compra> compras = new ArrayList<Compra>();
+    private Provincia provincia;
+
+    /*
+    Este es el pase elegido por el cliente para realizar la compra
+    Es utilizado en las funciones comprobarNumeroEntradas y ConfirmarCompra
+     */
+    public void setPrecio_pase_a_comprar(float precio_pase_a_comprar) {
+        this.precio_pase_a_comprar = precio_pase_a_comprar;
+    }
+
+    private Pase pase_a_comprar;
+    private int num_entradas_a_comprar;
+    private float precio_pase_a_comprar;
+
+    public Cliente(String nombre, String apellidos, String dni, String tlf, Date fnac, String provincia, String email, String password, TicketCine ticketCine) {
+        super(nombre, apellidos, dni, tlf, fnac, provincia, email, password, ticketCine);
+    }
+
+    /**
+     * Consulta la lista de pases de un pelicula seleccionada
+     * 
+     * @return Lista de Pases disponibles
+     */ 
+    public ArrayList consultarPases()
+    {
+        return cineAct.consultarPases(peliAct);
+    }
+
+    
+    public Pase getPaseComprar() {
+        return pase_a_comprar;
+    }
+
+    public void setPaseComprar(Object pase_a_comprar) {
+        this.pase_a_comprar = (Pase) pase_a_comprar;
+    }
+
+    public int getNumEntradasComprar() {
+        return num_entradas_a_comprar;
+    }
+
+    public void setNumEntradasComprar(int num_entradas_a_comprar) {
+        this.num_entradas_a_comprar = num_entradas_a_comprar;
+    }
+
+    public float getPrecioPaseComprar() {
+        return precio_pase_a_comprar;
+    }
+
+
+    /**
+    * Comprueba que el numero de entradas que quiere el cliente
+    * es menos o igual al numero de entradas disponibles para el pase programado
+    *
+    * @param[in] _pase Pase seleccionado por el cliente
+    * @param[in] _n_entradas Numero de entradas deseadas por el cliente
+    *
+    * @return precio de la compra
+    */
+    public float comprobarNumeroEntradas() {
+        
+        precio_pase_a_comprar = pase_a_comprar.comprobarNumeroEntradas(this.getNumEntradasComprar());
+        
+        return precio_pase_a_comprar;
+    }
+
+    /**
+     * Realiza la compra de un o varios pases y lo guarda en el vector de compras
+     *
+     * @retval true si se pudo realizar la compra
+     * @retval false si no se pudo realizar la compra
+     */
+    public boolean confirmarCompra() {
+        boolean paypal = true, confirmada = false;
+        
+        if(paypal)
+        {
+            confirmada = pase_a_comprar.confirmarCompra(precio_pase_a_comprar, num_entradas_a_comprar, this);
+        }
+        
+        return confirmada;
+    }
+    
+    /**
+     * 
+     * Anade una compra nueva en el array list de compras
+     * 
+     * @param nuevaCompra cpmpra a anadir
+     * 
+     * @retval true si se pudo anadir la compra
+     * @retval false si no se pudo anadir la compra
+     */
+    public boolean addCompra(Compra nuevaCompra) {
+       return compras.add(nuevaCompra);
+    }
+    
+    /**
+     * 
+     * Elimina la compra del ArrayList
+     * 
+     * @param compra Compra a eliminar
+     * 
+     */
+    public void deleteCompra(Compra compra){
+        compras.remove(compra);
+    }
+    
+    
+    public Compra consultarCompras(Pelicula pelicula)
+    {
+        Compra compra_aux = null;
+        
+        for(int i = 0; i < compras.size(); i++)
+        {
+            if(compras.get(i).getPase().comprobarPase(pelicula.getPase()))
+            {
+                compra_aux = compras.get(i);
+            }
+        }
+        
+        return compra_aux;
+    }
+    
+    public void seleccionarCompra()
+    {
+        
+    }
+
+}

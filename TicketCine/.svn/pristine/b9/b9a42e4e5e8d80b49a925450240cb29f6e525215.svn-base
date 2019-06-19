@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ticketcine.Modelo.TicketCine>
+  <usuariosRegistrados>
+    <ticketcine.Controlador.Cliente>
+      <ticketCine defined-in="ticketcine.Controlador.UsuarioNoRegistrado" reference="../../.."/>
+      <id__usuario>0</id__usuario>
+      <nombre>Aldemaro</nombre>
+      <apellidos>Gonzalez Suarez</apellidos>
+      <dni>34225285Y</dni>
+      <tlf>643514224</tlf>
+      <fecha__nac>3898-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia>
+        <nombre>Madrid</nombre>
+        <ticketCine reference="../../../.."/>
+        <cines>
+          <ticketcine.Modelo.Cine>
+            <nombre>Cines LYS</nombre>
+            <direccion>Sol(Madrid)</direccion>
+            <tlf>963 51 17 66</tlf>
+            <n__salas>4</n__salas>
+            <cp>44034</cp>
+            <poblacion>Realejos</poblacion>
+            <provincia reference="../../.."/>
+            <gerentes/>
+            <peliculasCine>
+              <ticketcine.Modelo.Pelicula>
+                <titulo>Dumbo</titulo>
+                <genero>Familiar</genero>
+                <direccion>Tim Burton</direccion>
+                <interpretes>Colin Farrel</interpretes>
+                <fecha__estreno>3919-03-10 23:00:00.0 UTC</fecha__estreno>
+                <calificacion>6</calificacion>
+                <sinopsis>Dumbo es un elefante que vuela.</sinopsis>
+                <criticas/>
+                <cines>
+                  <ticketcine.Modelo.Cine reference="../../../.."/>
+                </cines>
+              </ticketcine.Modelo.Pelicula>
+              <ticketcine.Modelo.Pelicula>
+                <titulo>La Llorona</titulo>
+                <genero>Terror</genero>
+                <direccion>Michael Chaves</direccion>
+                <interpretes>Linda Cardellini</interpretes>
+                <fecha__estreno>3919-05-19 22:00:00.0 UTC</fecha__estreno>
+                <calificacion>5</calificacion>
+                <sinopsis> Una aparición terrorífica, encerrada entre el Cielo y el Infierno.</sinopsis>
+                <criticas/>
+                <cines>
+                  <ticketcine.Modelo.Cine reference="../../../.."/>
+                </cines>
+              </ticketcine.Modelo.Pelicula>
+            </peliculasCine>
+            <pases>
+              <ticketcine.Modelo.Pase>
+                <fecha>3919-06-28 12:00:00.0 UTC</fecha>
+                <hora class="int">22</hora>
+                <precio>10.0</precio>
+                <compras/>
+                <cine reference="../../.."/>
+                <sala>
+                  <id__sala>1</id__sala>
+                  <capacidad>30</capacidad>
+                  <pases/>
+                </sala>
+                <pelicula reference="../../../peliculasCine/ticketcine.Modelo.Pelicula"/>
+                <estado class="ticketcine.Modelo.PaseProgramado">
+                  <pase reference="../.."/>
+                  <asientos__disponibles>30</asientos__disponibles>
+                </estado>
+              </ticketcine.Modelo.Pase>
+              <ticketcine.Modelo.Pase>
+                <fecha>3919-06-28 13:00:00.0 UTC</fecha>
+                <hora class="int">16</hora>
+                <precio>10.0</precio>
+                <compras/>
+                <cine reference="../../.."/>
+                <sala>
+                  <id__sala>2</id__sala>
+                  <capacidad>30</capacidad>
+                  <pases/>
+                </sala>
+                <pelicula reference="../../../peliculasCine/ticketcine.Modelo.Pelicula[2]"/>
+                <estado class="ticketcine.Modelo.PaseProgramado">
+                  <pase reference="../.."/>
+                  <asientos__disponibles>30</asientos__disponibles>
+                </estado>
+              </ticketcine.Modelo.Pase>
+            </pases>
+            <salas>
+              <ticketcine.Modelo.Sala reference="../../pases/ticketcine.Modelo.Pase/sala"/>
+              <ticketcine.Modelo.Sala reference="../../pases/ticketcine.Modelo.Pase[2]/sala"/>
+              <ticketcine.Modelo.Sala>
+                <id__sala>3</id__sala>
+                <capacidad>30</capacidad>
+                <pases/>
+              </ticketcine.Modelo.Sala>
+              <ticketcine.Modelo.Sala>
+                <id__sala>4</id__sala>
+                <capacidad>30</capacidad>
+                <pases/>
+              </ticketcine.Modelo.Sala>
+            </salas>
+          </ticketcine.Modelo.Cine>
+        </cines>
+      </provincia>
+      <email>1</email>
+      <password>1</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+      <compras>
+        <ticketcine.Modelo.Compra>
+          <fecha>2019-05-26 12:44:57.519 UTC</fecha>
+          <precio>30.0</precio>
+          <n__entradas>3</n__entradas>
+          <cliente reference="../../.."/>
+          <pase reference="../../../provincia/cines/ticketcine.Modelo.Cine/pases/ticketcine.Modelo.Pase"/>
+        </ticketcine.Modelo.Compra>
+        <ticketcine.Modelo.Compra>
+          <fecha>2019-05-26 12:44:57.519 UTC</fecha>
+          <precio>20.0</precio>
+          <n__entradas>2</n__entradas>
+          <cliente reference="../../.."/>
+          <pase reference="../../../provincia/cines/ticketcine.Modelo.Cine/pases/ticketcine.Modelo.Pase[2]"/>
+        </ticketcine.Modelo.Compra>
+      </compras>
+      <num__entradas__a__comprar>0</num__entradas__a__comprar>
+      <precio__pase__a__comprar>0.0</precio__pase__a__comprar>
+    </ticketcine.Controlador.Cliente>
+    <ticketcine.Controlador.Cliente>
+      <ticketCine defined-in="ticketcine.Controlador.UsuarioNoRegistrado" reference="../../.."/>
+      <id__usuario>1</id__usuario>
+      <nombre>Wilberth</nombre>
+      <apellidos>Lasso Giraldo</apellidos>
+      <dni>53862133Y</dni>
+      <tlf>623715123</tlf>
+      <fecha__nac>3888-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia>
+        <nombre>Barcelona</nombre>
+        <ticketCine reference="../../../.."/>
+        <cines>
+          <ticketcine.Modelo.Cine>
+            <nombre>Cines MN4</nombre>
+            <direccion>Calle Jose Puertes(Barcelona)</direccion>
+            <tlf>902 48 84 88</tlf>
+            <n__salas>3</n__salas>
+            <cp>51234</cp>
+            <poblacion>Camp Nou</poblacion>
+            <provincia reference="../../.."/>
+            <gerentes/>
+            <peliculasCine>
+              <ticketcine.Modelo.Pelicula>
+                <titulo>Dolor y Gloria</titulo>
+                <genero>Drama</genero>
+                <direccion>Pedro Almodovar</direccion>
+                <interpretes>Antonio Banderas</interpretes>
+                <fecha__estreno>3918-03-10 23:00:00.0 UTC</fecha__estreno>
+                <calificacion>7</calificacion>
+                <sinopsis>Salvador Mallo es un aclamado director de cine en su ocaso</sinopsis>
+                <criticas/>
+                <cines>
+                  <ticketcine.Modelo.Cine reference="../../../.."/>
+                </cines>
+              </ticketcine.Modelo.Pelicula>
+              <ticketcine.Modelo.Pelicula>
+                <titulo>Harry Potter</titulo>
+                <genero>Fantasia</genero>
+                <direccion>Luis Almeida</direccion>
+                <interpretes>Libia Rosales</interpretes>
+                <fecha__estreno>3919-04-21 22:00:00.0 UTC</fecha__estreno>
+                <calificacion>8</calificacion>
+                <sinopsis>Harry se embarca en un oceano de aventuras</sinopsis>
+                <criticas/>
+                <cines>
+                  <ticketcine.Modelo.Cine reference="../../../.."/>
+                </cines>
+              </ticketcine.Modelo.Pelicula>
+            </peliculasCine>
+            <pases>
+              <ticketcine.Modelo.Pase>
+                <fecha>3919-06-29 18:00:00.0 UTC</fecha>
+                <hora class="int">12</hora>
+                <precio>10.0</precio>
+                <compras/>
+                <cine reference="../../.."/>
+                <sala>
+                  <id__sala>1</id__sala>
+                  <capacidad>35</capacidad>
+                  <pases/>
+                </sala>
+                <pelicula reference="../../../peliculasCine/ticketcine.Modelo.Pelicula"/>
+                <estado class="ticketcine.Modelo.PaseProgramado">
+                  <pase reference="../.."/>
+                  <asientos__disponibles>35</asientos__disponibles>
+                </estado>
+              </ticketcine.Modelo.Pase>
+              <ticketcine.Modelo.Pase>
+                <fecha>3919-06-29 14:00:00.0 UTC</fecha>
+                <hora class="int">15</hora>
+                <precio>10.0</precio>
+                <compras/>
+                <cine reference="../../.."/>
+                <sala>
+                  <id__sala>2</id__sala>
+                  <capacidad>35</capacidad>
+                  <pases/>
+                </sala>
+                <pelicula reference="../../../peliculasCine/ticketcine.Modelo.Pelicula[2]"/>
+                <estado class="ticketcine.Modelo.PaseProgramado">
+                  <pase reference="../.."/>
+                  <asientos__disponibles>35</asientos__disponibles>
+                </estado>
+              </ticketcine.Modelo.Pase>
+            </pases>
+            <salas>
+              <ticketcine.Modelo.Sala reference="../../pases/ticketcine.Modelo.Pase/sala"/>
+              <ticketcine.Modelo.Sala reference="../../pases/ticketcine.Modelo.Pase[2]/sala"/>
+              <ticketcine.Modelo.Sala>
+                <id__sala>3</id__sala>
+                <capacidad>35</capacidad>
+                <pases/>
+              </ticketcine.Modelo.Sala>
+            </salas>
+          </ticketcine.Modelo.Cine>
+        </cines>
+      </provincia>
+      <email>2</email>
+      <password>2</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+      <compras>
+        <ticketcine.Modelo.Compra>
+          <fecha>2019-05-26 12:44:57.519 UTC</fecha>
+          <precio>30.0</precio>
+          <n__entradas>3</n__entradas>
+          <cliente reference="../../.."/>
+          <pase reference="../../../provincia/cines/ticketcine.Modelo.Cine/pases/ticketcine.Modelo.Pase"/>
+        </ticketcine.Modelo.Compra>
+        <ticketcine.Modelo.Compra>
+          <fecha>2019-05-26 12:44:57.519 UTC</fecha>
+          <precio>20.0</precio>
+          <n__entradas>2</n__entradas>
+          <cliente reference="../../.."/>
+          <pase reference="../../../provincia/cines/ticketcine.Modelo.Cine/pases/ticketcine.Modelo.Pase[2]"/>
+        </ticketcine.Modelo.Compra>
+      </compras>
+      <num__entradas__a__comprar>0</num__entradas__a__comprar>
+      <precio__pase__a__comprar>0.0</precio__pase__a__comprar>
+    </ticketcine.Controlador.Cliente>
+    <ticketcine.Controlador.Gerente>
+      <ticketCine defined-in="ticketcine.Controlador.UsuarioNoRegistrado" reference="../../.."/>
+      <id__usuario>2</id__usuario>
+      <nombre>Arantxa</nombre>
+      <apellidos>Vidal Ortiz</apellidos>
+      <dni>63852433V</dni>
+      <tlf>623723123</tlf>
+      <fecha__nac>3888-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia defined-in="ticketcine.Controlador.UsuarioRegistrado">
+        <nombre>Valencia</nombre>
+        <ticketCine reference="../../../.."/>
+        <cines>
+          <ticketcine.Modelo.Cine>
+            <nombre>Cines Bonaire 3D</nombre>
+            <direccion>Autovía del Este(Valencia)</direccion>
+            <tlf>963 22 45 81</tlf>
+            <n__salas>2</n__salas>
+            <cp>46100</cp>
+            <poblacion>Campanar</poblacion>
+            <provincia reference="../../.."/>
+            <gerentes/>
+            <peliculasCine>
+              <ticketcine.Modelo.Pelicula>
+                <titulo>Aquaman</titulo>
+                <genero>Ciencia Ficcion</genero>
+                <direccion>Dudamel Felipe</direccion>
+                <interpretes>Ned Stark</interpretes>
+                <fecha__estreno>3919-04-14 22:00:00.0 UTC</fecha__estreno>
+                <calificacion>8</calificacion>
+                <sinopsis>Kahl Dogro se disfraza de Aquaman</sinopsis>
+                <criticas/>
+                <cines>
+                  <ticketcine.Modelo.Cine reference="../../../.."/>
+                </cines>
+              </ticketcine.Modelo.Pelicula>
+              <ticketcine.Modelo.Pelicula>
+                <titulo>Los increibles</titulo>
+                <genero>Animada</genero>
+                <direccion>Aldemaro Gonzalez</direccion>
+                <interpretes>Wilberth Lasso</interpretes>
+                <fecha__estreno>3919-04-14 22:00:00.0 UTC</fecha__estreno>
+                <calificacion>8</calificacion>
+                <sinopsis>Nuevos heroes nuevos villanos</sinopsis>
+                <criticas/>
+                <cines>
+                  <ticketcine.Modelo.Cine reference="../../../.."/>
+                </cines>
+              </ticketcine.Modelo.Pelicula>
+            </peliculasCine>
+            <pases>
+              <ticketcine.Modelo.Pase>
+                <fecha>3919-06-30 19:00:00.0 UTC</fecha>
+                <hora class="int">12</hora>
+                <precio>10.0</precio>
+                <compras/>
+                <cine reference="../../.."/>
+                <sala>
+                  <id__sala>1</id__sala>
+                  <capacidad>40</capacidad>
+                  <pases/>
+                </sala>
+                <pelicula reference="../../../peliculasCine/ticketcine.Modelo.Pelicula"/>
+                <estado class="ticketcine.Modelo.PaseProgramado">
+                  <pase reference="../.."/>
+                  <asientos__disponibles>40</asientos__disponibles>
+                </estado>
+              </ticketcine.Modelo.Pase>
+              <ticketcine.Modelo.Pase>
+                <fecha>3919-06-30 19:30:00.0 UTC</fecha>
+                <hora class="int">10</hora>
+                <precio>10.0</precio>
+                <compras/>
+                <cine reference="../../.."/>
+                <sala>
+                  <id__sala>2</id__sala>
+                  <capacidad>40</capacidad>
+                  <pases/>
+                </sala>
+                <pelicula reference="../../../peliculasCine/ticketcine.Modelo.Pelicula[2]"/>
+                <estado class="ticketcine.Modelo.PaseProgramado">
+                  <pase reference="../.."/>
+                  <asientos__disponibles>40</asientos__disponibles>
+                </estado>
+              </ticketcine.Modelo.Pase>
+            </pases>
+            <salas>
+              <ticketcine.Modelo.Sala reference="../../pases/ticketcine.Modelo.Pase/sala"/>
+              <ticketcine.Modelo.Sala reference="../../pases/ticketcine.Modelo.Pase[2]/sala"/>
+            </salas>
+          </ticketcine.Modelo.Cine>
+          <ticketcine.Modelo.Cine>
+            <nombre>Yelmo Cines</nombre>
+            <direccion>Av.Tirso de Molina(València)</direccion>
+            <tlf>902 22 09 22</tlf>
+            <n__salas>3</n__salas>
+            <cp>46200</cp>
+            <poblacion>Benimaclet</poblacion>
+            <provincia reference="../../.."/>
+            <gerentes/>
+            <peliculasCine>
+              <ticketcine.Modelo.Pelicula>
+                <titulo>Advengers: End Game</titulo>
+                <genero>Ciencia Ficcion</genero>
+                <direccion>Caplin Chapel</direccion>
+                <interpretes>Lord Mercury</interpretes>
+                <fecha__estreno>3919-06-24 22:00:00.0 UTC</fecha__estreno>
+                <calificacion>8</calificacion>
+                <sinopsis>Ironman no muere para saval el mundo</sinopsis>
+                <criticas/>
+                <cines>
+                  <ticketcine.Modelo.Cine reference="../../../.."/>
+                </cines>
+              </ticketcine.Modelo.Pelicula>
+              <ticketcine.Modelo.Pelicula>
+                <titulo>Hamlet</titulo>
+                <genero>Cine negro</genero>
+                <direccion>James Lebron</direccion>
+                <interpretes>Penson Roberto Ortero</interpretes>
+                <fecha__estreno>3919-04-11 22:00:00.0 UTC</fecha__estreno>
+                <calificacion>8</calificacion>
+                <sinopsis>La tragica historia del guerrero</sinopsis>
+                <criticas/>
+                <cines>
+                  <ticketcine.Modelo.Cine reference="../../../.."/>
+                </cines>
+              </ticketcine.Modelo.Pelicula>
+            </peliculasCine>
+            <pases>
+              <ticketcine.Modelo.Pase>
+                <fecha>3919-07-01 13:30:00.0 UTC</fecha>
+                <hora class="int">12</hora>
+                <precio>10.0</precio>
+                <compras/>
+                <cine reference="../../.."/>
+                <sala>
+                  <id__sala>1</id__sala>
+                  <capacidad>25</capacidad>
+                  <pases/>
+                </sala>
+                <pelicula reference="../../../peliculasCine/ticketcine.Modelo.Pelicula"/>
+                <estado class="ticketcine.Modelo.PaseProgramado">
+                  <pase reference="../.."/>
+                  <asientos__disponibles>25</asientos__disponibles>
+                </estado>
+              </ticketcine.Modelo.Pase>
+              <ticketcine.Modelo.Pase>
+                <fecha>3919-07-01 12:30:00.0 UTC</fecha>
+                <hora class="int">10</hora>
+                <precio>10.0</precio>
+                <compras/>
+                <cine reference="../../.."/>
+                <sala>
+                  <id__sala>2</id__sala>
+                  <capacidad>25</capacidad>
+                  <pases/>
+                </sala>
+                <pelicula reference="../../../peliculasCine/ticketcine.Modelo.Pelicula[2]"/>
+                <estado class="ticketcine.Modelo.PaseProgramado">
+                  <pase reference="../.."/>
+                  <asientos__disponibles>25</asientos__disponibles>
+                </estado>
+              </ticketcine.Modelo.Pase>
+            </pases>
+            <salas>
+              <ticketcine.Modelo.Sala reference="../../pases/ticketcine.Modelo.Pase/sala"/>
+              <ticketcine.Modelo.Sala reference="../../pases/ticketcine.Modelo.Pase[2]/sala"/>
+              <ticketcine.Modelo.Sala>
+                <id__sala>3</id__sala>
+                <capacidad>50</capacidad>
+                <pases/>
+              </ticketcine.Modelo.Sala>
+            </salas>
+          </ticketcine.Modelo.Cine>
+        </cines>
+      </provincia>
+      <email>g</email>
+      <password>g</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+      <cinesGerente>
+        <ticketcine.Modelo.Cine reference="../../../ticketcine.Controlador.Cliente[2]/provincia/cines/ticketcine.Modelo.Cine"/>
+      </cinesGerente>
+    </ticketcine.Controlador.Gerente>
+  </usuariosRegistrados>
+  <provincias>
+    <ticketcine.Modelo.Provincia reference="../../usuariosRegistrados/ticketcine.Controlador.Cliente/provincia"/>
+    <ticketcine.Modelo.Provincia reference="../../usuariosRegistrados/ticketcine.Controlador.Cliente[2]/provincia"/>
+    <ticketcine.Modelo.Provincia reference="../../usuariosRegistrados/ticketcine.Controlador.Gerente/provincia"/>
+  </provincias>
+  <peliculas>
+    <ticketcine.Modelo.Pelicula reference="../../usuariosRegistrados/ticketcine.Controlador.Cliente/provincia/cines/ticketcine.Modelo.Cine/peliculasCine/ticketcine.Modelo.Pelicula"/>
+    <ticketcine.Modelo.Pelicula reference="../../usuariosRegistrados/ticketcine.Controlador.Cliente/provincia/cines/ticketcine.Modelo.Cine/peliculasCine/ticketcine.Modelo.Pelicula[2]"/>
+    <ticketcine.Modelo.Pelicula reference="../../usuariosRegistrados/ticketcine.Controlador.Cliente[2]/provincia/cines/ticketcine.Modelo.Cine/peliculasCine/ticketcine.Modelo.Pelicula"/>
+    <ticketcine.Modelo.Pelicula reference="../../usuariosRegistrados/ticketcine.Controlador.Cliente[2]/provincia/cines/ticketcine.Modelo.Cine/peliculasCine/ticketcine.Modelo.Pelicula[2]"/>
+    <ticketcine.Modelo.Pelicula reference="../../usuariosRegistrados/ticketcine.Controlador.Gerente/provincia/cines/ticketcine.Modelo.Cine/peliculasCine/ticketcine.Modelo.Pelicula"/>
+    <ticketcine.Modelo.Pelicula reference="../../usuariosRegistrados/ticketcine.Controlador.Gerente/provincia/cines/ticketcine.Modelo.Cine/peliculasCine/ticketcine.Modelo.Pelicula[2]"/>
+    <ticketcine.Modelo.Pelicula reference="../../usuariosRegistrados/ticketcine.Controlador.Gerente/provincia/cines/ticketcine.Modelo.Cine[2]/peliculasCine/ticketcine.Modelo.Pelicula"/>
+    <ticketcine.Modelo.Pelicula reference="../../usuariosRegistrados/ticketcine.Controlador.Gerente/provincia/cines/ticketcine.Modelo.Cine[2]/peliculasCine/ticketcine.Modelo.Pelicula[2]"/>
+  </peliculas>
+  <ERROR>-1</ERROR>
+  <ENCONTRADO>1</ENCONTRADO>
+  <SEGUIR>0</SEGUIR>
+</ticketcine.Modelo.TicketCine>

@@ -1,0 +1,74 @@
+package ticketcine.Controlador;
+
+import java.text.SimpleDateFormat;
+import ticketcine.Modelo.TicketCine;
+import ticketcine.Modelo.*;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Gerente extends UsuarioRegistrado {
+        
+    private ArrayList<Cine> cinesGerente = new ArrayList<Cine>();
+    //private TicketCine ticketCine;
+    private Cine cine;
+    private Pelicula pelicula;
+    private Provincia provincia;
+/*
+    public Gerente(String email, String password, TicketCine ticketCine) {
+        super(email, password, ticketCine);
+    }
+*/
+    
+    public Gerente(String nombre, String apellidos, String dni, String tlf, Date fnac, Provincia provincia, String email, String password, TicketCine ticketCine) {
+        super(nombre, apellidos, dni, tlf, fnac, provincia, email, password, ticketCine);
+    }
+
+    public ArrayList consultarCinesGerente() {
+        return cinesGerente;
+    }
+        
+    public ArrayList consultarPelisNuevas(Object cineAct) {
+        System.out.println("Gerente-ConsultarPelis");
+	return ticketCine.consultarPelisNuevas((Cine) cineAct);
+    }
+    
+    public ArrayList registrarPelicula(Object _pelicula) {
+        this.setPeliAct(_pelicula);
+        this.cineAct.registrarPelicula((Pelicula) _pelicula);
+        return this.cineAct.getSalas();
+    }
+    
+    //Botón atrás EstrenarPeliculas2 - EstrenarPeliculas1
+    public void eliminarPelicula()
+    {
+        this.cineAct.eliminarPelicula((Pelicula) getPeliAct());
+    }
+    
+    public ArrayList consultarSalasDisponibles(Object _fecha, Object _hora) {
+        return this.cineAct.consultarSalasDisponibles((Date)_fecha, _hora);
+    }
+
+    public void registrarPase(Object _fecha, Object _hora, Object _sala) {
+        //SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        
+        //String fordate = format.format(_fecha);
+        this.cineAct.registrarPase((Date)_fecha, _hora, (Sala) _sala, (Pelicula) this.getPeliAct());
+    }
+    
+
+        
+    /*
+    public void setCine(Object _cine) {
+	this.cine = (Cine)_cine;
+    }
+    */
+       /* public Cine getCine(){
+        return this.cine;
+    }
+*/
+    public void addCine(Object _cine) {
+        cinesGerente.add((Cine)_cine);
+    }
+    
+    
+}

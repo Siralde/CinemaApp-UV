@@ -1,0 +1,24 @@
+package ticketcine.Modelo;
+
+import java.util.ArrayList;
+import ticketcine.Modelo.Pase;
+import java.util.Date;
+import ticketcine.Modelo.Cine;
+
+public class Sala {
+	private int sala;
+	/**
+	 * Cantidad de asientos de una sala
+	 */
+	private int capacidad;
+	public Pase pase;
+	protected Cine cine;
+	private ArrayList<Pase> pases = new ArrayList<Pase>();
+
+	public void registrarPase(Date _fecha, Object _hora) {
+		Pase paseSala = new Pase();
+                paseSala.setFecha(_fecha);
+                paseSala.setHora(_hora);
+                pases.add(paseSala);
+	}
+}

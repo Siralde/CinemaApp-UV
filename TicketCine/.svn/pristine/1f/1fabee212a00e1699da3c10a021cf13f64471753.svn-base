@@ -1,0 +1,45 @@
+package ticketcine.Modelo;
+
+import java.util.ArrayList;
+import ticketcine.Modelo.Pase;
+import java.util.Date;
+import ticketcine.Modelo.Cine;
+
+public class Sala {
+    // Atributos
+
+    private int id_sala;
+    private int capacidad; //Cantidad de asintos en una sala
+    protected Cine cine;
+    private ArrayList<Pase> pases = new ArrayList<Pase>();
+
+    public Sala(int _n_sala, int capacidad) {
+        this.id_sala = _n_sala;
+        this.capacidad = capacidad;
+    }
+
+    public String toString() {
+        return Integer.toString(id_sala);
+    }
+
+    public String getSala() {
+        return Integer.toString(id_sala);
+    }
+
+    public void registrarPase(Pase paseNuevo) {
+        pases.add(paseNuevo);
+        //System.out.println("SALA-registrarPase(pases): " + pases);
+    }
+  
+    public boolean comprobarDisponibilidad(Date _fecha, Object _hora) {
+        boolean ocupado = false;
+        int i = 0;
+
+        while(i < pases.size() && !ocupado){
+            Pase p = pases.get(i);
+            ocupado = p.comprobarDisponibilidad(_fecha, _hora);   
+        }
+                
+        return ocupado;
+    }    
+}

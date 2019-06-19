@@ -1,0 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ticketcine.Controlador;
+
+import java.util.Date;
+
+/**
+ *
+ * @author Rulos
+ */
+public class DetallesPelicula {
+    public String titulo;
+    public String genero;
+    public String direccion;
+    public int calificacion;
+    public String sinopsis;
+    public String interpretes;
+    public Date fecha_estreno;
+    
+    public DetallesPelicula(String titulo, String genero, String direccion, int calificacion, String sinopsis, String interpretes, Date fecha_estreno){
+        this.titulo = titulo;
+        this.genero = genero;
+        this.direccion = direccion;
+        this.calificacion = calificacion;
+        this.sinopsis = sinopsis;
+        this.interpretes = interpretes;
+        this.fecha_estreno = fecha_estreno;
+    
+    }
+}

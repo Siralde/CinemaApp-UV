@@ -1,0 +1,102 @@
+package ticketcine.Controlador;
+
+import ticketcine.Modelo.TicketCine;
+import java.util.ArrayList;
+import java.util.Date;
+import ticketcine.Modelo.Cine;
+import ticketcine.Modelo.Pelicula;
+import ticketcine.Modelo.Provincia;
+
+public class UsuarioRegistrado {
+
+    
+    private static int contadorid=0;
+    private int id_usuario;
+    private String nombre;
+    private String apellidos;
+    private String dni;
+    private String tlf;
+    private Date fecha_nac;
+    private String provincia;
+    private String email;
+    private String password;
+    protected TicketCine ticketCine;
+    private ArrayList<Cine> cines = new ArrayList<Cine>();
+    private ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+    final int ERROR = -1;
+    final int ENCONTRADO = 1;
+    final int SEGUIR = 0;
+
+    public UsuarioRegistrado() {
+    }
+
+    
+    
+    public UsuarioRegistrado(String email, String password, TicketCine ticketCine) {
+        this.email = email;
+        this.password = password;
+        this.ticketCine = ticketCine;
+    }
+    
+    
+    public UsuarioRegistrado(String nombre, String apellidos, String dni, String tlf, Date fnac, String provincia, String email, String password, TicketCine ticketCine){
+       
+        this.id_usuario = contadorid;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.tlf = tlf;
+        this.fecha_nac = fnac;
+        this.provincia = provincia;
+        this.email = email;
+        this.password = password;
+        this.ticketCine = ticketCine;
+        this.contadorid++;
+    }
+    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String toString() {
+        return email;
+    }
+
+    public ArrayList seleccionarProvincias(Provincia _provincia) {
+        this.cines = ticketCine.seleccionarProvincias(_provincia);
+
+        return this.cines;
+    }
+
+    public ArrayList seleccionarCines(Cine _cine) {
+        this.peliculas = ticketCine.seleccionarCines(_cine);
+
+        return this.peliculas;
+    }
+
+    public int validarUsuario(String email, String password) {
+        int resultado;
+        
+        if(email == this.email && password == this.password)
+            resultado = ENCONTRADO;
+        else if (email == this.email && password != this.password)
+            resultado = ERROR;
+        else 
+            resultado = SEGUIR;
+        
+        return resultado;
+    }
+}

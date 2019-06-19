@@ -1,0 +1,116 @@
+package ticketcine.Modelo;
+
+import java.util.Date;
+
+public class Pase {
+	private Date fecha;
+	private short hora;
+	private short minutos;
+	private float precio;
+	private Compra compra;
+	private Cine cine;
+	private Sala sala;
+	private Pelicula pelicula;
+	private EstadoPase estado;
+	protected Sala salas;
+
+        public Pase() {
+		throw new UnsupportedOperationException();
+	}
+        
+        public float getPrecio() {
+            return this.precio;
+	}
+
+	public void setPrecio(float _precio) {
+            this.precio = _precio;
+	}
+
+	public short getMinutos() {
+            return this.minutos;
+	}
+
+	public void setMinutos(short _minutos) {
+            this.minutos = _minutos;
+	}
+
+	public short getHora() {
+            return this.hora;
+	}
+
+	public void setHora(short _hora) {
+            this.hora = _hora;
+	}
+
+	public Date getFecha() {
+            return this.fecha;
+	}
+
+	public void setFecha(Date _fecha) {
+            this.fecha = _fecha;
+	}
+        
+        public void setPelicula(Pelicula _pelicula) {
+            this.pelicula = _pelicula;
+	}
+
+	public Pelicula getPelicula() {
+            return this.pelicula;
+	}
+
+	public void setSalas(Sala _salas) {
+            this.salas = _salas;
+	}
+
+	public Sala getSalas() {
+            return this.salas;
+	}
+        
+        /**
+         * 
+         * Comprueba que el numero de entradas deseada por el usuario sea 
+         * menor o igual al numero de asientos disponibles del pase programado
+         * 
+         * @param _n_entradas Numero de entradas deseadas por el usuario
+         * 
+         * @return el precio final del pase  
+         */
+        public float comprobarNumeroEntradas(int _n_entradas) {
+            float precio_final = 0;
+            
+            if(estado.comprobarNumeroEntradas(_n_entradas))
+            {
+               precio_final = this.precio * _n_entradas;
+            }      
+               
+            return precio_final;
+	}
+        
+        /**
+         * 
+         * Comprueba que la pelicula elegida por el usuario
+         * 
+         * @param _pelicula Pelicula elegida por el usuario
+         * 
+         * @retval true si la pelicula esta disponible
+         * @retval false si la pelicula no esta disponible
+         */
+	public boolean comprobarDisponibilidad(Pelicula _pelicula) {
+            return estado.comprobarDisponibilidad(_pelicula);
+	}
+
+        /**
+         * 
+         * Comprueba si la pelicula elegida por el usuario es la misma del pase
+         * Para filtrar los pases de las peliculas que quiere el cliente
+         * 
+         * @param _pelicula pelicula elegida por el usuario
+         * 
+         * @retval true Si la pelicula elegida es igual a la pelicula del pase
+         * @retval false Si la pelicula elegida no es igual a la pelicula del pase
+         */
+	public boolean comprobarPelicula(Pelicula _pelicula) {
+            return pelicula == _pelicula;
+	}
+
+}

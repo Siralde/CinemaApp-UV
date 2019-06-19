@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ticketcine.Controlador.TicketCine>
+  <usuariosRegistrados>
+    <ticketcine.Controlador.Cliente>
+      <id__usuario>0</id__usuario>
+      <nombre>Aldemaro</nombre>
+      <apellidos>Gonzalez Suarez</apellidos>
+      <dni>34225285Y</dni>
+      <tlf>643514224</tlf>
+      <fecha__nac>3898-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia defined-in="ticketcine.Controlador.UsuarioRegistrado">Valencia</provincia>
+      <email>alde@gmail.com</email>
+      <password>Aldemaro</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+      <compras/>
+      <num__entradas__a__comprar>0</num__entradas__a__comprar>
+      <precio__pase__a__comprar>0.0</precio__pase__a__comprar>
+    </ticketcine.Controlador.Cliente>
+    <ticketcine.Controlador.Cliente>
+      <id__usuario>1</id__usuario>
+      <nombre>Wilberth</nombre>
+      <apellidos>Lasso Giraldo</apellidos>
+      <dni>53862133Y</dni>
+      <tlf>623715123</tlf>
+      <fecha__nac>3888-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia defined-in="ticketcine.Controlador.UsuarioRegistrado">Madrid</provincia>
+      <email>wilberth@gmail.com</email>
+      <password>Wilberth</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+      <compras/>
+      <num__entradas__a__comprar>0</num__entradas__a__comprar>
+      <precio__pase__a__comprar>0.0</precio__pase__a__comprar>
+    </ticketcine.Controlador.Cliente>
+    <ticketcine.Controlador.Gerente>
+      <id__usuario>2</id__usuario>
+      <nombre>Arantxa</nombre>
+      <apellidos>Vidal Ortiz</apellidos>
+      <dni>63852433V</dni>
+      <tlf>623723123</tlf>
+      <fecha__nac>3888-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia>Barcelona</provincia>
+      <email>arantxa@gmail.com</email>
+      <password>Arantxa</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+    </ticketcine.Controlador.Gerente>
+    <ticketcine.Controlador.Cliente>
+      <id__usuario>3</id__usuario>
+      <nombre>Aldemaro</nombre>
+      <apellidos>Gonzalez Suarez</apellidos>
+      <dni>34225285Y</dni>
+      <tlf>643514224</tlf>
+      <fecha__nac>3898-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia defined-in="ticketcine.Controlador.UsuarioRegistrado">Valencia</provincia>
+      <email>alde@gmail.com</email>
+      <password>Aldemaro</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+      <compras/>
+      <num__entradas__a__comprar>0</num__entradas__a__comprar>
+      <precio__pase__a__comprar>0.0</precio__pase__a__comprar>
+    </ticketcine.Controlador.Cliente>
+    <ticketcine.Controlador.Cliente>
+      <id__usuario>4</id__usuario>
+      <nombre>Wilberth</nombre>
+      <apellidos>Lasso Giraldo</apellidos>
+      <dni>53862133Y</dni>
+      <tlf>623715123</tlf>
+      <fecha__nac>3888-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia defined-in="ticketcine.Controlador.UsuarioRegistrado">Madrid</provincia>
+      <email>wilberth@gmail.com</email>
+      <password>Wilberth</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+      <compras/>
+      <num__entradas__a__comprar>0</num__entradas__a__comprar>
+      <precio__pase__a__comprar>0.0</precio__pase__a__comprar>
+    </ticketcine.Controlador.Cliente>
+    <ticketcine.Controlador.Gerente>
+      <id__usuario>5</id__usuario>
+      <nombre>Arantxa</nombre>
+      <apellidos>Vidal Ortiz</apellidos>
+      <dni>63852433V</dni>
+      <tlf>623723123</tlf>
+      <fecha__nac>3888-08-29 22:00:00.0 UTC</fecha__nac>
+      <provincia>Barcelona</provincia>
+      <email>arantxa@gmail.com</email>
+      <password>Arantxa</password>
+      <ticketCine reference="../../.."/>
+      <cines/>
+      <peliculas/>
+      <ERROR>-1</ERROR>
+      <ENCONTRADO>1</ENCONTRADO>
+      <SEGUIR>0</SEGUIR>
+    </ticketcine.Controlador.Gerente>
+  </usuariosRegistrados>
+  <peliculas>
+    <ticketcine.Modelo.Pelicula>
+      <titulo>Dumbo</titulo>
+      <genero>Familiar</genero>
+      <direccion>Tim Burton</direccion>
+      <interpretes>Colin Farrel</interpretes>
+      <fecha__estreno>2019-04-28 22:00:00.0 UTC</fecha__estreno>
+      <calificacion>6</calificacion>
+      <sinopsis>Dumbo es un elefante que vuela.</sinopsis>
+      <pase2/>
+      <cines/>
+    </ticketcine.Modelo.Pelicula>
+    <ticketcine.Modelo.Pelicula>
+      <titulo>La Llorona</titulo>
+      <genero>Terror</genero>
+      <direccion>Michael Chaves</direccion>
+      <interpretes>Linda Cardellini</interpretes>
+      <fecha__estreno>2019-05-17 22:00:00.0 UTC</fecha__estreno>
+      <calificacion>5</calificacion>
+      <sinopsis> Una aparición terrorífica, encerrada entre el Cielo y el Infierno.</sinopsis>
+      <pase2/>
+      <cines/>
+    </ticketcine.Modelo.Pelicula>
+    <ticketcine.Modelo.Pelicula>
+      <titulo>Dolor y Gloria</titulo>
+      <genero>Drama</genero>
+      <direccion>Pedro Almodovar</direccion>
+      <interpretes>Antonio Banderas</interpretes>
+      <fecha__estreno>2019-04-21 22:00:00.0 UTC</fecha__estreno>
+      <calificacion>7</calificacion>
+      <sinopsis>Salvador Mallo es un aclamado director de cine en su ocaso</sinopsis>
+      <pase2/>
+      <cines/>
+    </ticketcine.Modelo.Pelicula>
+    <ticketcine.Modelo.Pelicula>
+      <titulo>Dumbo</titulo>
+      <genero>Familiar</genero>
+      <direccion>Tim Burton</direccion>
+      <interpretes>Colin Farrel</interpretes>
+      <fecha__estreno>2019-04-28 22:00:00.0 UTC</fecha__estreno>
+      <calificacion>6</calificacion>
+      <sinopsis>Dumbo es un elefante que vuela.</sinopsis>
+      <pase2/>
+      <cines/>
+    </ticketcine.Modelo.Pelicula>
+    <ticketcine.Modelo.Pelicula>
+      <titulo>La Llorona</titulo>
+      <genero>Terror</genero>
+      <direccion>Michael Chaves</direccion>
+      <interpretes>Linda Cardellini</interpretes>
+      <fecha__estreno>2019-05-17 22:00:00.0 UTC</fecha__estreno>
+      <calificacion>5</calificacion>
+      <sinopsis> Una aparición terrorífica, encerrada entre el Cielo y el Infierno.</sinopsis>
+      <pase2/>
+      <cines/>
+    </ticketcine.Modelo.Pelicula>
+    <ticketcine.Modelo.Pelicula>
+      <titulo>Dolor y Gloria</titulo>
+      <genero>Drama</genero>
+      <direccion>Pedro Almodovar</direccion>
+      <interpretes>Antonio Banderas</interpretes>
+      <fecha__estreno>2019-04-21 22:00:00.0 UTC</fecha__estreno>
+      <calificacion>7</calificacion>
+      <sinopsis>Salvador Mallo es un aclamado director de cine en su ocaso</sinopsis>
+      <pase2/>
+      <cines/>
+    </ticketcine.Modelo.Pelicula>
+  </peliculas>
+  <cines>
+    <ticketcine.Modelo.Cine>
+      <nombre>Cines LYS</nombre>
+      <direccion>Passeig Russafa(Valencia)</direccion>
+      <tlf>963 51 17 66</tlf>
+      <n__salas>14</n__salas>
+      <gerentes/>
+      <peliculasCine/>
+      <pases/>
+      <salas>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 1</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 2</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 3</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 4</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+      </salas>
+    </ticketcine.Modelo.Cine>
+    <ticketcine.Modelo.Cine>
+      <nombre>Cines MN4</nombre>
+      <direccion>Calle Jose  Puertes(Alfafar)</direccion>
+      <tlf>902 48 84 88</tlf>
+      <n__salas>15</n__salas>
+      <gerentes/>
+      <peliculasCine/>
+      <pases/>
+      <salas>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 1</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 2</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 3</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+      </salas>
+    </ticketcine.Modelo.Cine>
+    <ticketcine.Modelo.Cine>
+      <nombre>Cines Bonaire 3D</nombre>
+      <direccion>Autovía del Este(Valencia)</direccion>
+      <tlf>963 22 45 81</tlf>
+      <n__salas>10</n__salas>
+      <gerentes/>
+      <peliculasCine/>
+      <pases/>
+      <salas>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 1</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 2</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+      </salas>
+    </ticketcine.Modelo.Cine>
+    <ticketcine.Modelo.Cine>
+      <nombre>Yelmo Cines</nombre>
+      <direccion>Av.Tirso de Molina(València)</direccion>
+      <tlf>902 22 09 22</tlf>
+      <n__salas>15</n__salas>
+      <gerentes/>
+      <peliculasCine/>
+      <pases/>
+      <salas>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 1</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 2</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 3</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 4</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 5</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+      </salas>
+    </ticketcine.Modelo.Cine>
+    <ticketcine.Modelo.Cine>
+      <nombre>Cines LYS</nombre>
+      <direccion>Passeig Russafa(Valencia)</direccion>
+      <tlf>963 51 17 66</tlf>
+      <n__salas>14</n__salas>
+      <gerentes/>
+      <peliculasCine/>
+      <pases/>
+      <salas>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 1</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 2</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 3</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 4</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+      </salas>
+    </ticketcine.Modelo.Cine>
+    <ticketcine.Modelo.Cine>
+      <nombre>Cines MN4</nombre>
+      <direccion>Calle Jose  Puertes(Alfafar)</direccion>
+      <tlf>902 48 84 88</tlf>
+      <n__salas>15</n__salas>
+      <gerentes/>
+      <peliculasCine/>
+      <pases/>
+      <salas>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 1</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 2</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 3</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+      </salas>
+    </ticketcine.Modelo.Cine>
+    <ticketcine.Modelo.Cine>
+      <nombre>Cines Bonaire 3D</nombre>
+      <direccion>Autovía del Este(Valencia)</direccion>
+      <tlf>963 22 45 81</tlf>
+      <n__salas>10</n__salas>
+      <gerentes/>
+      <peliculasCine/>
+      <pases/>
+      <salas>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 1</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 2</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+      </salas>
+    </ticketcine.Modelo.Cine>
+    <ticketcine.Modelo.Cine>
+      <nombre>Yelmo Cines</nombre>
+      <direccion>Av.Tirso de Molina(València)</direccion>
+      <tlf>902 22 09 22</tlf>
+      <n__salas>15</n__salas>
+      <gerentes/>
+      <peliculasCine/>
+      <pases/>
+      <salas>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 1</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 2</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 3</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 4</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+        <ticketcine.Modelo.Sala>
+          <n__sala>Sala 5</n__sala>
+          <sala>0</sala>
+          <capacidad>0</capacidad>
+        </ticketcine.Modelo.Sala>
+      </salas>
+    </ticketcine.Modelo.Cine>
+  </cines>
+  <ERROR>-1</ERROR>
+  <ENCONTRADO>1</ENCONTRADO>
+  <SEGUIR>0</SEGUIR>
+</ticketcine.Controlador.TicketCine>

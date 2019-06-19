@@ -1,0 +1,213 @@
+package ticketcine.Modelo;
+
+import java.util.ArrayList;
+import java.util.Date;
+import ticketcine.Controlador.Cliente;
+
+public class Pase {
+    // Atributos
+    private Date fecha;
+    private Object hora;
+    private float precio;
+    
+    // Relaciones
+    protected ArrayList<Compra> compras;
+    private Cine cine;
+    private Sala sala;
+    private Pelicula pelicula;
+    private EstadoPase estado;
+    //protected Sala salas;
+
+    public Pase(Date _fecha, Object _hora, float precio, Cine cine, Sala sala, Pelicula pelicula) {
+        this.fecha = _fecha;
+        this.hora = _hora;
+        this.precio = precio;
+        
+        
+        this.compras = new ArrayList<Compra>();
+        this.cine = cine;
+        this.sala = sala;
+        this.pelicula = pelicula;
+        this.estado = new EstadoPase(this);
+        
+        /*
+        if("1".equals(_sala.getSala()))
+        {
+            pelicula = new Pelicula("Harry Potter", "genero", "direccion", "interpretes", _fecha, 8, "sinopsis");
+            cine = new Cine("Cines MN4", "C/ Almedrejo 10", "44034", "Alfafar", "963456968", 16);
+        }
+        if("2".equals(_sala.getSala()))
+        {
+            pelicula = new Pelicula("Los increibles", "genero", "direccion", "interpretes", _fecha, 8, "sinopsis");
+            cine = new Cine("Cines Aqua", "Av Francia", "46022", "Valencia", "963556745", 18);
+        }
+        if("3".equals(_sala.getSala()))
+        {
+            pelicula = new Pelicula("Aquaman", "genero", "direccion", "interpretes", _fecha, 8, "sinopsis");
+            cine = new Cine("Cines Kinepolis", "Carretera Burjassot", "40042", "Paterna", "963452311", 12);
+        }
+        */
+    }
+
+
+    public float getPrecio() {
+        return this.precio;
+    }
+
+    public void setPrecio(float _precio) {
+        this.precio = _precio;
+    }
+
+    public Date getFecha() {
+        return this.fecha;
+    }
+
+    public void setFecha(Date _fecha) {
+        this.fecha = _fecha;
+    }
+    
+    public Object getHora() {
+        return this.hora;
+    }
+
+    public void setHora(Object _hora) {
+        this.hora = _hora;
+    }
+
+    public void setPelicula(Pelicula _pelicula) {
+        this.pelicula = _pelicula;
+    }
+
+    public Pelicula getPelicula() {
+        return this.pelicula;
+    }
+    
+    //He cambiado setSalas por setSala -> _salas por _sala y lo de dentro tmb he quitado las s
+    public void setSala(Sala _sala) {
+        this.sala = _sala;
+    }
+
+    public Sala getSala() {
+        return this.sala;
+    }
+    
+    public Cine getCine()
+    {
+        return cine;
+    }
+
+    
+    public String toString()
+    {
+        return fecha.toString() + ", " + hora.toString() + ", " + cine.toString() + ", "  + sala.toString() + ", " + pelicula.toString();
+    }
+    
+    
+    public boolean comprobarDisponibilidad(Date _fecha, Object _hora) {
+	boolean ocupado = false;
+        
+        //no es esa comprobacion, pero de momento así
+        if(fecha == _fecha && hora == _hora)
+            ocupado = true;
+        
+        return ocupado;
+    }
+
+    
+    /**
+     * 
+     * Comprueba que el numero de entradas deseada por el usuario sea 
+     * menor o igual al numero de asientos disponibles del pase programado
+     * 
+     * @param _n_entradas Numero de entradas deseadas por el usuario
+     * 
+     * @return el precio final del pase  
+     */
+    public float comprobarNumeroEntradas(int _n_entradas) {
+        return estado.comprobarNumeroEntradas(_n_entradas);
+    }
+
+    /**
+     * 
+     * Comprueba que la pelicula elegida por el usuario
+     * 
+     * @param _pelicula Pelicula elegida por el usuario
+     * 
+     * @retval true si la pelicula esta disponible
+     * @retval false si la pelicula no esta disponible
+     */
+    public boolean comprobarDisponibilidad(Pelicula _pelicula) {
+        return estado.comprobarDisponibilidad(_pelicula);
+    }
+
+    /**
+     * 
+     * Comprueba si la pelicula elegida por el usuario es la misma del pase
+     * Para filtrar los pases de las peliculas que quiere el cliente
+     * 
+     * @param _pelicula pelicula elegida por el usuario
+     * 
+     * @retval true Si la pelicula elegida es igual a la pelicula del pase
+     * @retval false Si la pelicula elegida no es igual a la pelicula del pase
+     */
+    public boolean comprobarPase(Pase pase) {
+            boolean res = false;
+            
+            if(pase.getFecha().compareTo(fecha) == 0)
+            {
+                if(pase.getPelicula().getTitulo().equals(pelicula.getTitulo()))
+                {
+                    res = true;
+                }
+            }
+            
+            return res;
+	}
+
+    /**
+     * 
+     * @param _pelicula Pelicula elegida por el usuario
+     * 
+     * @retval true Si es la misma pelicula del pase
+     * @retval false Si es diferente a la pelicula del pase
+     */
+    public boolean comprobarPelicula(Pelicula _pelicula) {
+        return this.pelicula == _pelicula;
+    }
+    
+    public boolean confirmarCompra(float importe, int n_entradas, Cliente cliente) {
+        return estado.confirmarCompra(importe, n_entradas, cliente);
+    }
+
+    
+    /**
+     * 
+     * Anade una compra nueva en el array list de compras
+     * 
+     * @param nuevaCompra cpmpra a anadir
+     * 
+     * @retval true si se pudo anadir la compra
+     * @retval false si no se pudo anadir la compra
+     */
+    public boolean addCompra(Compra nuevaCompra) {
+        return compras.add(nuevaCompra);
+    }
+    
+    
+    /**
+     * 
+     * Elimina la compra del ArrayList de compras del pase
+     * 
+     * @param compra Compra a eliminar
+     * 
+     */
+    public void deleteCompra(Compra compra) {
+        compras.remove(compra);
+    }
+    
+    
+    public void realizarCritica(Critica comentario)
+    {
+        pelicula.realizarCritica(comentario);
+    }
+}

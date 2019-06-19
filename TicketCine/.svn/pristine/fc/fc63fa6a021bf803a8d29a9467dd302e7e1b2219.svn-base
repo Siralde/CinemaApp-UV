@@ -1,0 +1,47 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ticketcine.Controlador;
+
+import ticketcine.Modelo.Cine;
+import ticketcine.Modelo.Pelicula;
+import ticketcine.Modelo.TicketCine;
+
+/**
+ *
+ * @author ajgs
+ */
+public class UsuarioNoRegistrado {
+
+    private Cine cineAct;
+    private Pelicula peliAct;
+    private TicketCine ticketCine;
+
+
+    public Object getCineAct() {
+        return cineAct;
+    }
+
+    public void setCineAct(Cine cineAct) {
+        this.cineAct = cineAct;
+    }
+
+    public Object getPeliAct() {
+        return peliAct;
+    }
+
+    public void setPeliAct(Pelicula peliAct) {
+        this.peliAct = peliAct;
+    }
+
+    public TicketCine getTicketCine() {
+        return ticketCine;
+    }
+
+    public void setTicketCine(TicketCine ticketCine) {
+        this.ticketCine = ticketCine;
+    }
+
+}

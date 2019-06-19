@@ -1,0 +1,29 @@
+package ticketcine.Controlador;
+
+import ticketcine.Modelo.*;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Gerente extends UsuarioRegistrado {
+	//private ArrayList<Cine> cines = new ArrayList<Cine>();
+        
+        public Gerente(String email, String password, TicketCine ticketCine) {
+            super(email, password, ticketCine);
+        }
+
+	public ArrayList consultarCines() {
+		return ticketCine.consultarCines();
+	}
+
+	public ArrayList consultarPeliculas(Cine _cine) {
+		return _cine.consultarPeliculas();
+	}
+
+	public void registrarPelicula(Cine _cine, Pelicula _pelicula) {
+		_cine.registrarPelicula(_pelicula);
+	}
+
+	public void registrarPase(Cine _cine, Date _fecha, Object _hora, Sala _sala) {
+		_cine.registrarPase(_fecha,_hora,_sala);
+	}
+}

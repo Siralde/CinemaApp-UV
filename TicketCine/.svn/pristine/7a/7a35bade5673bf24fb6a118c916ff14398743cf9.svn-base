@@ -1,0 +1,28 @@
+package ticketcine.Modelo;
+
+import java.util.ArrayList;
+import ticketcine.Controlador.*;
+
+public class Provincia {
+
+    private Object nombre;
+    private TicketCine ticketCine;
+    private Cliente cliente;
+    private ArrayList<Cine> cines = new ArrayList<Cine>();
+    private Cine cine = new Cine();
+
+    public ArrayList obtenerCines(Provincia _provincia) {
+
+        ArrayList<Cine> cinesProvincia = new ArrayList<Cine>();
+        boolean pertenece;
+
+        for (Cine c : cines) {
+            pertenece = c.comprobarCineProv(_provincia);
+            if (pertenece) {
+                cinesProvincia.add(c);
+            }
+        }
+
+        return cinesProvincia;
+    }
+}

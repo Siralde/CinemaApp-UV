@@ -1,0 +1,110 @@
+package ticketcine.Modelo;
+
+import ticketcine.Controlador.Gerente;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Cine {
+    private String nombre;
+    private String direccion;
+    private String tlf;
+    private int n_salas;
+    private Provincia provincia;
+    private ArrayList<Gerente> gerentes = new ArrayList<Gerente>();
+    private ArrayList<Pelicula> peliculasCine = new ArrayList<Pelicula>();
+    protected Pelicula pelicula;
+    private ArrayList<Pase> pases = new ArrayList<Pase>();
+    private ArrayList<Sala> salas = new ArrayList<Sala>();
+    
+    public Cine(String _nombre, String _direccion, String _tlf, int _n_salas) {
+        nombre = _nombre;
+        direccion = _direccion;
+        tlf = _tlf;
+        n_salas = _n_salas;
+    }
+
+    public ArrayList consultarPases(Pelicula _pelicula) {
+
+        ArrayList<Pase> paseDisponibles = new ArrayList<Pase>();
+
+        for(Pase pase : pases) 
+        { 
+            if(pase.comprobarDisponibilidad(_pelicula))
+            {
+                paseDisponibles.add(pase);
+            }
+        }
+
+        return paseDisponibles;
+    }
+        
+    public String toString()
+    {
+        return nombre;
+    }
+    
+    public void setSala(Sala _sala){
+        salas.add(_sala);
+    }
+    
+    public ArrayList getSalas(){
+        return salas;
+    }
+
+    public void registrarPelicula(Pelicula _pelicula) {
+        peliculasCine.add(_pelicula);
+    }
+        
+    public void registrarPase(Date _fecha, Object _hora, Sala _sala) {
+        Pase paseCine = new Pase(_fecha, _hora, _sala);
+        paseCine.setFecha(_fecha);
+        paseCine.setHora(_hora);
+        paseCine.setSala(_sala);
+        /*for(Sala sala : salas){
+            if (sala == _sala)
+                sala.registrarPase(_fecha,_hora);
+        }*/
+        pases.add(paseCine);
+    }
+        
+    public boolean comprobarCineProv(Provincia _provincia) {
+        boolean pertenece = this.comprobarProvincia(_provincia);
+
+        return pertenece;
+    }
+
+    public boolean comprobarProvincia(Provincia _provincia) {
+        boolean pertenece = false;
+
+        if (this.provincia.equals(_provincia)) {
+            pertenece = true;
+        }
+
+        return pertenece;
+    }
+
+    public ArrayList obtenerPeliculas(Cine _cine) {
+        ArrayList<Pelicula> peliculasCine = new ArrayList<Pelicula>();
+        boolean pertenece;
+
+        for (Pelicula p : peliculasCine) {
+            pertenece = p.comprobarPeliculaCine(_cine);
+
+            if (pertenece) {
+                peliculasCine.add(p);
+            }
+        }
+
+        return peliculasCine;
+    }
+    
+    public ArrayList<Sala> consultarSalasDisponibles(Date _fecha, Object _hora) {
+	ArrayList<Sala> salasDisp = new ArrayList<Sala>(salas);
+        for (Sala s : salas){
+            if(s.comprobarDisponibilidad(_fecha, _hora))
+                salasDisp.remove(s);   
+        }
+        
+        return salasDisp;
+    }
+}

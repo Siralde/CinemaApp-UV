@@ -1,0 +1,13 @@
+package Modelo_Conceptual;
+
+import java.util.ArrayList;
+import Modelo_Conceptual.UsuarioRegistrado;
+import Modelo_Conceptual.Provincia;
+import Modelo_Conceptual.Pelicula;
+
+public class TicketCine {
+	private ArrayList<UsuarioNoRegistrado> usuarioNoRegistrado = new ArrayList<UsuarioNoRegistrado>();
+	private ArrayList<UsuarioRegistrado> usuarioRegistrados = new ArrayList<UsuarioRegistrado>();
+	private ArrayList<Provincia> provincias = new ArrayList<Provincia>();
+	private ArrayList<Pelicula> pelicula = new ArrayList<Pelicula>();
+}

@@ -1,0 +1,89 @@
+package ticketcine.Controlador;
+
+import java.util.ArrayList;
+import ticketcine.Modelo.*;
+
+public class TicketCine {
+	//private ArrayList<UsuarioNoRegistrado> usuarioNoRegistrado = new ArrayList<UsuarioNoRegistrado>();
+	private ArrayList<UsuarioRegistrado> usuariosRegistrados = new ArrayList<UsuarioRegistrado>();
+	//private ArrayList<Provincia> provincias = new ArrayList<Provincia>();
+	private ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+        private ArrayList<Cine> cines = new ArrayList<Cine>();
+       
+        private static TicketCine ticketcine;
+        public static TicketCine getSingleton() {
+            if (ticketcine == null)
+                ticketcine = new TicketCine();
+            
+            return ticketcine;
+        }
+        
+        private TicketCine()
+        {                   
+            usuariosRegistrados.add(new Gerente("g", "g", this));
+            
+            Cine c1 = new Cine("Cines LYS");
+            Cine c2 = new Cine("Cines MN4");
+            Cine c3 = new Cine("Cines Bonaire");
+            Cine c4 = new Cine("Cines Salera");
+            cines.add(c1);
+            cines.add(c2);
+            cines.add(c3);
+            cines.add(c4);  
+            
+            Pelicula p1 = new Pelicula("Dumbo");
+            Pelicula p2 = new Pelicula("La Llorona");
+            Pelicula p3 = new Pelicula("Dolor y Gloria");
+            Pelicula p4 = new Pelicula("La pequeña Suiza");
+            Pelicula p5 = new Pelicula("Lo dejo cuando quiera");
+            Pelicula p6 = new Pelicula("Mia y el león blanco");
+            Pelicula p7 = new Pelicula("Vengadores: Endgame");
+            peliculas.add(p1);
+            peliculas.add(p2);
+            peliculas.add(p3);
+            peliculas.add(p4); 
+            peliculas.add(p5);
+            peliculas.add(p6);
+            peliculas.add(p7);
+        }
+        
+        public ArrayList<Cine> consultarCines(){
+            return cines;
+        }
+        
+        public ArrayList<Pelicula> consultarPeliculas(){
+            return peliculas;
+        }
+        
+        public ArrayList seleccionarProvincias(Provincia _provincia) {
+            this.cines = _provincia.obtenerCines(_provincia);
+
+            return this.cines;
+        }
+
+        public ArrayList seleccionarCines(Cine _cine) {
+            this.peliculas = _cine.obtenerPeliculas(_cine);
+
+            return this.peliculas;
+        }
+        
+        public UsuarioRegistrado login(String email, String password) {
+            UsuarioRegistrado usuarioreg = null;
+            boolean u = false, ok = false;
+
+            for (int i = 0; i < usuariosRegistrados.size() && !u; i++) {
+                usuarioreg = usuariosRegistrados.get(i);
+
+                u = (usuarioreg.toString().equals(email));
+            }
+
+            if (u) {
+                ok = (usuarioreg.getPassword().equals(password));
+            }    
+
+            if(!ok)
+                usuarioreg = null;
+
+            return usuarioreg;
+        }
+}

@@ -1,0 +1,75 @@
+package ticketcine.Controlador;
+
+import java.util.ArrayList;
+import ticketcine.Modelo.*;
+
+
+public class Cliente extends UsuarioRegistrado {
+    //public Critica critica;
+    protected ArrayList<Compra> compras = new ArrayList<Compra>();
+    private Provincia provincia;
+    private Cine cineAct;
+    private Pelicula peliAct;
+    /*
+    Este es el pase elegido por el cliente para realizar la compra
+    Es utilizado en las funciones comprobarNumeroEntradas y ConfirmarCompra
+    */
+    private Pase pase_a_comprar;
+
+    public Cliente() {
+
+        cineAct = new Cine();
+        peliAct = new Pelicula();
+    }
+
+    /**
+     * Consulta la lista de pases de un pelicula seleccionada
+     * 
+     * @return Lista de Pases disponibles
+     */ 
+    public ArrayList consultarPases()
+    {
+        return cineAct.consultarPases(peliAct);
+    }
+
+
+    /**
+    * Comprueba que el numero de entradas que quiere el cliente
+    * es menos o igual al numero de entradas disponibles para el pase programado
+    *
+    * @param[in] _pase Pase seleccionado por el cliente
+    * @param[in] _n_entradas Numero de entradas deseadas por el cliente
+    *
+    * @return precio de la compra
+    */
+    public float comprobarNumeroEntradas(Object _pase, int _n_entradas) {
+        
+        /* 
+        * Este pase a comprar deberia llamarse pase y estar dentr de esta funcion o ser un atributo
+        */
+        pase_a_comprar = (Pase) _pase;
+
+        return pase_a_comprar.comprobarNumeroEntradas(_n_entradas);
+    }
+
+    /**
+     * Realiza la compra de un o varios pases y lo guarda en el vector de compras
+     *
+     * @retval true si se pudo realizar la compra
+     * @retval false si no se pudo realizar la compra
+     */
+    public boolean confirmarCompra() {
+        Compra compra = new Compra();
+        /*
+        * COMO LE PASO EL PASE Y EL NUMERO DE ENTRADAS
+        */
+        boolean compraRealizada = compra.realizarCompra(pase_a_comprar, 0);
+
+        if(compraRealizada == true)
+        {
+            compras.add(compra);
+        }
+
+        return compraRealizada;
+    }
+}

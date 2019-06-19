@@ -1,0 +1,96 @@
+package ticketcine.Controlador;
+
+import java.util.ArrayList;
+import ticketcine.Modelo.*;
+
+
+public class Cliente extends UsuarioRegistrado {
+    //public Critica critica;
+    protected ArrayList<Compra> compras = new ArrayList<Compra>();
+    private Provincia provincia;
+    private Cine cineAct;
+    private Pelicula peliAct;
+    /*
+    Este es el pase elegido por el cliente para realizar la compra
+    Es utilizado en las funciones comprobarNumeroEntradas y ConfirmarCompra
+    */
+    private Pase pase_a_comprar;
+
+    public Cliente() {
+
+        cineAct = new Cine();
+        peliAct = new Pelicula();
+    }
+
+    /**
+     * Consulta la lista de pases de un pelicula seleccionada
+     * 
+     * @return Lista de Pases disponibles
+     */ 
+    public ArrayList consultarPases()
+    {
+        return cineAct.consultarPases(peliAct);
+    }
+
+
+    /**
+    * Comprueba que el numero de entradas que quiere el cliente
+    * es menos o igual al numero de entradas disponibles para el pase programado
+    *
+    * @param[in] _pase Pase seleccionado por el cliente
+    * @param[in] _n_entradas Numero de entradas deseadas por el cliente
+    *
+    * @return precio de la compra
+    */
+    public float comprobarNumeroEntradas(Object _pase, int _n_entradas) {
+        
+        /* 
+        * Este pase a comprar deberia llamarse pase y estar dentr de esta funcion o ser un atributo
+        */
+        pase_a_comprar = (Pase) _pase;
+
+        return pase_a_comprar.comprobarNumeroEntradas(_n_entradas);
+    }
+
+    /**
+     * Realiza la compra de un o varios pases y lo guarda en el vector de compras
+     *
+     * @retval true si se pudo realizar la compra
+     * @retval false si no se pudo realizar la compra
+     */
+    public boolean confirmarCompra() {
+        
+        
+        
+        boolean paypal = true;
+        
+        
+        if(paypal)
+        {
+            pase_a_comprar.confirmarCompra()
+        }
+
+        return compraRealizada;
+    }
+    
+    
+    public Compra consultarCompras(Pelicula pelicula)
+    {
+        Compra compra_aux = null;
+        
+        for(int i = 0; i < compras.size(); i++)
+        {
+            if(compras.get(i).getPase().comprobarPase(pelicula.getPase()))
+            {
+                compra_aux = compras.get(i);
+            }
+        }
+        
+        return compra_aux;
+    }
+    
+    public void seleccionarCompra()
+    {
+        
+    }
+}

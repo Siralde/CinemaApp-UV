@@ -1,0 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ticketcine.Modelo;
+
+import ticketcine.Controlador.TicketCine;
+import ticketcine.Controlador.UsuarioRegistrado;
+
+public class GestorTicketCine {
+
+    private TicketCine ticketCine;
+
+    /*
+	public UsuarioNoRegistrado iniciar() {
+		throw new UnsupportedOperationException();
+	}
+     */
+    public UsuarioRegistrado login(String _contrasena, String _email) {
+       return ticketCine.login( _email, _contrasena );
+    }
+}

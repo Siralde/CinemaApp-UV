@@ -1,0 +1,35 @@
+package ticketcine.Modelo;
+
+public class EstadoPase {
+	protected Pase pase;
+        
+    public EstadoPase() {
+            throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 
+     * Comprueba Disponibilidad de la pelicula para los pases programados
+     * 
+     * @param _pelicula Pelicula elegida por el cliente
+     * 
+     * @return  
+     */
+    public boolean comprobarDisponibilidad(Pelicula _pelicula) {
+            throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 
+     * Comprueba si el numero de entradas que quiere el usuario 
+     * es menor que el numero de asientos disponible para los pases programados
+     * 
+     * @param _n_entradas
+     * 
+     * @return 
+     */
+    public boolean comprobarNumeroEntradas(int _n_entradas) {
+        return false; // este metodo no tenia return (WILL)
+    }
+
+}

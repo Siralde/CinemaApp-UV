@@ -1,0 +1,204 @@
+package ticketcine.Modelo;
+
+import java.util.ArrayList;
+import java.util.Date;
+import ticketcine.Controlador.Cliente;
+import ticketcine.Controlador.Gerente;
+import ticketcine.Controlador.UsuarioRegistrado;
+
+public class TicketCine {
+
+    //private ArrayList<UsuarioNoRegistrado> usuarioNoRegistrado = new ArrayList<UsuarioNoRegistrado>();
+    private ArrayList<UsuarioRegistrado> usuariosRegistrados = new ArrayList<UsuarioRegistrado>();
+    private ArrayList<Provincia> provincias = new ArrayList<Provincia>();
+    private ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+    private ArrayList<Cine> cines = new ArrayList<Cine>();
+    final int ERROR = -1;
+    final int ENCONTRADO = 1;
+    final int SEGUIR = 0;
+
+    private static TicketCine ticketcine;
+
+    public static TicketCine getSingleton() throws Exception {
+        if (ticketcine == null) {
+            ticketcine = new TicketCine();
+        }
+
+        return ticketcine;
+    }
+
+    public TicketCine() throws Exception {
+        this.cargarDatos();
+    }
+
+    /**
+     * Devuelve un ArrayList con todas las provincias de TicketCine
+     *
+     * @return ArrayList con todas las provincias de TicketCine
+     */
+    public ArrayList<Provincia> consultarProvincias() {
+        return provincias;
+    }
+
+    public ArrayList<Cine> consultarCines() {
+        return cines;
+    }
+
+    public ArrayList<Pelicula> consultarPeliculas() {
+        return peliculas;
+    }
+
+    /**
+     * Devuelve un arraylist con la lista de los cines de una provincia
+     *
+     * @param _provincia Provincia que contiene lo cines
+     *
+     * @return ArrayList con los cines de una provincia
+     */
+    public ArrayList consultarCines(Provincia _provincia) {
+        this.cines = _provincia.obtenerCines(_provincia);
+        return this.cines;
+    }
+
+    public ArrayList seleccionarProvincias(Provincia _provincia) {
+        this.cines = _provincia.obtenerCines(_provincia);
+
+        return this.cines;
+    }
+
+    public ArrayList seleccionarCines(Cine _cine) {
+        this.peliculas = _cine.obtenerPeliculas(_cine);
+
+        return this.peliculas;
+    }
+
+    public UsuarioRegistrado login(String email, String password) {
+        UsuarioRegistrado usuario = null;
+        int i = 0, resultado = SEGUIR;
+
+        System.out.println(usuariosRegistrados.size() + email + password);
+
+        while (i < usuariosRegistrados.size() && (resultado != ERROR || resultado != ENCONTRADO)) {
+            usuario = usuariosRegistrados.get(i);
+            resultado = usuario.validarUsuario(email, password);
+            i++;
+
+            System.out.println(usuario + " == " + resultado);
+        }
+
+        if (resultado == ENCONTRADO) {
+            return usuario;
+        } else {
+            return null;
+        }
+
+        /*
+        Policia policia, policiaEncontrado = null;
+        int resultado=0, cont = 0;
+
+        do {
+            policia = policias.get(cont++);
+            resultado = policia.validarUsuario(_user, _pass);
+            if (resultado==1) {
+                policiaEncontrado = policia;
+            }
+        } while (policia != null && resultado == 0);
+        return policiaEncontrado;
+         */
+    }
+
+    /**
+     *
+     * Carga Datos para iniciar TicketCine
+     *
+     */
+    public void cargarDatos() throws Exception {
+
+        Cine c1 = new Cine("Cines LYS", "Sol(Madrid)", "963 51 17 66", 14);
+        c1.setSala(new Sala("Sala 1"));
+        c1.setSala(new Sala("Sala 2"));
+        c1.setSala(new Sala("Sala 3"));
+        c1.setSala(new Sala("Sala 4"));
+        Cine c2 = new Cine("Cines MN4", "Calle Jose  Puertes(Barcelona)", "902 48 84 88", 15);
+        c2.setSala(new Sala("Sala 1"));
+        c2.setSala(new Sala("Sala 2"));
+        c2.setSala(new Sala("Sala 3"));
+        Cine c3 = new Cine("Cines Bonaire 3D", "Autovía del Este(Valencia)", "963 22 45 81", 10);
+        c3.setSala(new Sala("Sala 1"));
+        c3.setSala(new Sala("Sala 2"));
+        Cine c4 = new Cine("Yelmo Cines", "Av.Tirso de Molina(València)", "902 22 09 22", 15);
+        c4.setSala(new Sala("Sala 1"));
+        c4.setSala(new Sala("Sala 2"));
+        c4.setSala(new Sala("Sala 3"));
+        c4.setSala(new Sala("Sala 4"));
+        c4.setSala(new Sala("Sala 5"));
+        cines.add(c1);
+        cines.add(c2);
+        cines.add(c3);
+        cines.add(c4);
+
+        Date f1 = new Date(119, 3, 29);
+        Date f2 = new Date(119, 4, 18);
+        Date f3 = new Date(119, 3, 22);
+        Pelicula p1 = new Pelicula("Dumbo", "Familiar", "Tim Burton", "Colin Farrel", f1, 6, "Dumbo es un elefante que vuela.");
+        Pelicula p2 = new Pelicula("La Llorona", "Terror", "Michael Chaves", "Linda Cardellini", f2, 5, " Una aparición terrorífica, encerrada entre el Cielo y el Infierno.");
+        Pelicula p3 = new Pelicula("Dolor y Gloria", "Drama", "Pedro Almodovar", "Antonio Banderas", f3, 7, "Salvador Mallo es un aclamado director de cine en su ocaso");
+        /*Pelicula p4 = new Pelicula("La pequeña Suiza");
+        Pelicula p5 = new Pelicula("Lo dejo cuando quiera");
+        Pelicula p6 = new Pelicula("Mia y el león blanco");
+        Pelicula p7 = new Pelicula("Vengadores: Endgame");*/
+        peliculas.add(p1);
+        peliculas.add(p2);
+        peliculas.add(p3);
+        /*peliculas.add(p4); 
+        peliculas.add(p5);
+        peliculas.add(p6);
+        peliculas.add(p7);*/
+        
+        c1.addPeliculas(p1);
+        c1.addPeliculas(p2);
+        c1.addPeliculas(p3);
+        c2.addPeliculas(p1);
+        c2.addPeliculas(p2);
+        c3.addPeliculas(p2);
+        c3.addPeliculas(p3);
+        
+        
+        /**
+         * Datos de Provincia
+         */
+        Provincia pr1 = new Provincia("Madrid", this);
+        pr1.addCine(c1);
+        this.provincias.add(pr1);
+
+        Provincia pr2 = new Provincia("Barcelona", this);
+        pr1.addCine(c2);
+        this.provincias.add(pr2);
+
+        Provincia pr3 = new Provincia("Valencia", this);
+        pr1.addCine(c3);
+        this.provincias.add(pr3);
+
+        /**
+         * Datos de clientes
+         */
+        Date cliente1_fnac = new Date(1998, 7, 30);
+        Cliente cliente1 = new Cliente("Aldemaro", "Gonzalez Suarez", "34225285Y", "643514224", cliente1_fnac, "Valencia", "1", "1", this);
+
+        Date cliente2_fnac = new Date(1988, 7, 30);
+        Cliente cliente2 = new Cliente("Wilberth", "Lasso Giraldo", "53862133Y", "623715123", cliente2_fnac, "Madrid", "2", "2", this);
+
+        Date gerente_fnac = new Date(1988, 7, 30);
+        Gerente gerente = new Gerente("Arantxa", "Vidal Ortiz", "63852433V", "623723123", gerente_fnac, "Barcelona", "g", "g", this);
+        /*
+        Date administrador_fnac = new Date(1996, 8, 24);
+        Administrador administrador = new Administrador("Juan", "Esparza Romero", "83632455Z", "653711123", administrador_fnac, "Zaragoza", "juan@gmail.com", "Juan", this);
+         */
+        usuariosRegistrados.add(cliente1);
+        usuariosRegistrados.add(cliente2);
+        usuariosRegistrados.add(gerente);
+
+        gerente.addCine(c2);
+
+    }
+}

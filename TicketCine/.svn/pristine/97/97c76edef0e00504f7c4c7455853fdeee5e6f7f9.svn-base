@@ -1,0 +1,63 @@
+package ticketcine.Modelo;
+
+import java.util.ArrayList;
+import java.util.Date;
+import ticketcine.Controlador.TicketCine;
+
+public class Pelicula {
+
+    private String titulo;
+    private String genero;
+    private String direccion;
+    private String interpretes;
+    private Date fecha_estreno;
+    private int calificacion;
+    private String sinopsis;
+    protected Cine cine;
+    protected TicketCine ticketCine;
+    protected Pase pase;
+    public ArrayList<Pase> pase2 = new ArrayList<Pase>();
+    //private ArrayList<Critica> criticas = new ArrayList<Critica>();
+    private ArrayList<Cine> cines = new ArrayList<Cine>();
+    
+    public Pelicula(String _titulo, String _genero, String _direccion, String _interpretes, Date _fecha_estreno, int _calificacion, String _sinopsis) {
+        titulo = _titulo;
+        genero = _genero;
+        direccion = _direccion;
+        interpretes = _interpretes;
+        fecha_estreno = _fecha_estreno;
+        calificacion = _calificacion;
+        sinopsis = _sinopsis;
+    }
+
+    public boolean comprobarPeliculaCine(Cine _cine) {
+        boolean pertenece = false;
+
+        if (this.cine.equals(_cine)) {
+            pertenece = true;
+        }
+
+        return pertenece;
+    }
+/*
+    public boolean comprobarPeliculaCine(Cine _cine) {
+        boolean pertenece = this.compobarCine(_cine);
+
+        return pertenece;
+    }
+    */
+    public String toString()
+    {
+        return titulo;
+    }
+    
+    public String getTitulo()
+    {
+        return titulo;
+    }
+    
+    public Pase getPase()
+    {
+        return pase;
+    }
+}

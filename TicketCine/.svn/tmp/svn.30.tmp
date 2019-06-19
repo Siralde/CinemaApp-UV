@@ -1,0 +1,50 @@
+package ticketcine.Controlador;
+
+import ticketcine.Modelo.TicketCine;
+import ticketcine.Modelo.*;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Gerente extends UsuarioRegistrado {
+    private ArrayList<Cine> cinesGerente = new ArrayList<Cine>();
+
+    public Gerente(String nombre, String apellidos, String dni, String tlf, Date fnac, Provincia provincia, String email, String password, TicketCine ticketCine) {
+        super(nombre, apellidos, dni, tlf, fnac, provincia, email, password, ticketCine);
+    }
+
+    public ArrayList consultarCinesGerente() {
+        return this.getCinesGerentes();
+    }
+    
+    public ArrayList getCinesGerentes()
+    {
+        return cinesGerente;
+    }
+        
+    public ArrayList consultarPeliculasNuevas(Object cineAct) {
+        //System.out.println("Gerente-ConsultarPelis");
+        this.setCineAct(cineAct);
+	return ticketCine.consultarPelisNuevas( this.cineAct );
+    }
+    
+    public ArrayList registrarPelicula(Object _pelicula) {
+        this.setPeliAct(_pelicula);
+        this.cineAct.registrarPelicula((Pelicula) _pelicula);
+        return this.cineAct.getSalas();
+    }
+    
+    public ArrayList consultarSalasDisponibles(Object _fecha, Object _hora) {
+        return this.cineAct.consultarSalasDisponibles((Date)_fecha, _hora);
+    }
+
+    public void registrarPase(Object _fecha, Object _hora, Object _sala) {
+        //SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        
+        //String fordate = format.format(_fecha);
+        this.cineAct.registrarPase((Date)_fecha, _hora, (Sala) _sala, (Pelicula) this.getPeliAct());
+    }
+    
+    public void addCine(Object _cine) {
+        cinesGerente.add((Cine)_cine);
+    } 
+}

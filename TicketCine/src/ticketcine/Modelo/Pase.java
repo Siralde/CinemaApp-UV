@@ -1,0 +1,207 @@
+package ticketcine.Modelo;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import ticketcine.Controlador.Cliente;
+import ticketcine.Controlador.DetallesPase;
+
+public class Pase {
+    // Atributos
+    private Date fecha;
+    private Object hora;
+    private float precio;
+    
+    // Relaciones
+    protected ArrayList<Compra> compras;
+    private Cine cine;
+    private Sala sala;
+    private Pelicula pelicula;
+    private EstadoPase estado;
+
+    public Pase(Date _fecha, Object _hora, float precio, Cine cine, Sala sala, Pelicula pelicula, String estado) {
+        this.fecha = _fecha;
+        this.hora = _hora;
+        this.precio = precio;
+        
+        
+        this.compras = new ArrayList<Compra>();
+        this.cine = cine;
+        this.sala = sala;
+        this.pelicula = pelicula;
+        
+        
+        if(estado.equals("PROGRAMADO"))
+        {
+            this.estado = new PaseProgramado(this);
+        }
+        else
+            this.estado = new EstadoPase(this);
+        
+    }
+
+    public int getCapacidadSala()
+    {
+        return this.sala.getCapacidad();
+    }
+    
+    public float getPrecio() {
+        return this.precio;
+    }
+
+    public void setPrecio(float _precio) {
+        this.precio = _precio;
+    }
+
+    public Date getFecha() {
+        return this.fecha;
+    }
+
+    public void setFecha(Date _fecha) {
+        this.fecha = _fecha;
+    }
+    
+    public Object getHora() {
+        return this.hora;
+    }
+
+    public void setHora(Object _hora) {
+        this.hora = _hora;
+    }
+
+    public void setPelicula(Pelicula _pelicula) {
+        this.pelicula = _pelicula;
+    }
+
+    public Pelicula getPelicula() {
+        return this.pelicula;
+    }
+    
+    
+    public void setSala(Sala _sala) {
+        this.sala = _sala;
+    }
+
+    public Sala getSala() {
+        return this.sala;
+    }
+    
+    public Cine getCine()
+    {
+        return cine;
+    }
+
+    
+    public String toString()
+    {   
+        DateFormat df = new SimpleDateFormat("EEEE dd 'de' MMMM HH:mm", new Locale("es", "ES"));
+        return df.format(this.fecha) + " | Sala: " + sala.toString();
+    }
+   
+   
+    
+    /**
+     * 
+     * Comprueba que el numero de entradas deseada por el usuario sea 
+     * menor o igual al numero de asientos disponibles del pase programado
+     * 
+     * @param _n_entradas Numero de entradas deseadas por el usuario
+     * 
+     * @return el precio final del pase  
+     */
+    public float comprobarNumeroEntradas(int _n_entradas) {
+        return estado.comprobarNumeroEntradas(_n_entradas);
+    }
+
+    /**
+     * 
+     * Comprueba que la pelicula elegida por el usuario
+     * 
+     * @param _pelicula Pelicula elegida por el usuario
+     * 
+     * @retval true si la pelicula esta disponible
+     * @retval false si la pelicula no esta disponible
+     */
+    public boolean comprobarDisponibilidad(Pelicula _pelicula) {
+        return estado.comprobarDisponibilidad(_pelicula);
+    }
+
+    /**
+     * 
+     * Comprueba si la pelicula elegida por el usuario es la misma del pase
+     * Para filtrar los pases de las peliculas que quiere el cliente
+     * 
+     * @param _pelicula pelicula elegida por el usuario
+     * 
+     * @retval true Si la pelicula elegida es igual a la pelicula del pase
+     * @retval false Si la pelicula elegida no es igual a la pelicula del pase
+     */
+    public boolean comprobarPase(Pase pase) {
+            boolean res = false;
+            
+            if(pase.getFecha().compareTo(fecha) == 0)
+            {
+                if(pase.getPelicula().getTitulo().equals(pelicula.getTitulo()))
+                {
+                    res = true;
+                }
+            }
+            
+            return res;
+	}
+
+    /**
+     * 
+     * @param _pelicula Pelicula elegida por el usuario
+     * 
+     * @retval true Si es la misma pelicula del pase
+     * @retval false Si es diferente a la pelicula del pase
+     */
+    public boolean comprobarPelicula(Pelicula _pelicula) {
+        return this.pelicula == _pelicula;
+    }
+    
+    public boolean confirmarCompra(float importe, int n_entradas, Cliente cliente) {
+        return estado.confirmarCompra(importe, n_entradas, cliente);
+    }
+
+    
+    /**
+     * 
+     * Anade una compra nueva en el array list de compras
+     * 
+     * @param nuevaCompra cpmpra a anadir
+     * 
+     * @retval true si se pudo anadir la compra
+     * @retval false si no se pudo anadir la compra
+     */
+    public boolean addCompra(Compra nuevaCompra) {
+        boolean g = compras.add(nuevaCompra);
+       
+        return g;
+    }
+    
+    
+    /**
+     * 
+     * Elimina la compra del ArrayList de compras del pase
+     * 
+     * @param compra Compra a eliminar
+     * 
+     */
+    public void deleteCompra(Compra compra) {
+        compras.remove(compra);
+    }
+    
+    
+    public void realizarCritica(Critica comentario)
+    {
+        pelicula.realizarCritica(comentario);
+    }
+
+    public DetallesPase consultarDetallesPase() {
+        return new DetallesPase(this.hora, this.sala, this.cine, this.pelicula, this.fecha, this.precio);
+    }
+}
